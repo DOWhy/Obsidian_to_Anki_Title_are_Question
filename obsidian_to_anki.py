@@ -71,13 +71,14 @@ if __name__ == "__main__":
     markdown2html.copyMediaToAnki(questionPath)
 
 
-    # 将 question.txt 中的双引号都变成成对的双引号
-    # 将 question.txt 中的 @%@% 变成双引号  # 因为用引号标明字段，所以字段内的引号要用成对的。见：https://docs.ankiweb.net/importing.html
+
 
     questionTxt = open(questionPath, encoding='utf-8')
     content = questionTxt.read()
     questionTxt.close()
 
+    # 将 question.txt 中的双引号都变成成对的双引号
+    # 将 question.txt 中的 @%@% 变成双引号  # 因为用引号标明字段，所以字段内的引号要用成对的。见：https://docs.ankiweb.net/importing.html
     content = content.replace('"', '""')
     content = content.replace('@%@%', '"')
 
